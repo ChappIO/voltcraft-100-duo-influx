@@ -1,0 +1,8 @@
+### GoLang
+.idea/
+
+### Go Dep
+vendor/
+
+### Build
+build/
