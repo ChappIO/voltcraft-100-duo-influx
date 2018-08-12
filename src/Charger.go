@@ -33,6 +33,10 @@ func (charger *Charger) Monitor() {
 func (charger *Charger) Ping() {
 	// Request metrics
 	c, err := charger.Device.Write(ping)
+	for i := 0; i < 10 && err != nil; i++ {
+		Debug.Printf("Error while pinging, retry %d", i)
+		c, err = charger.Device.Write(ping)
+	}
 	if err != nil {
 		panic(err)
 	}
