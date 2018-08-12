@@ -6,3 +6,4 @@ vendor/
 
 ### Build
 build/
+.env

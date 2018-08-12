@@ -52,10 +52,10 @@ func (volt *Voltcraft) Scan() {
 				defer func() {
 					if r := recover(); r != nil {
 						err := r.(error)
-						Warn.Printf("Stop monitoring %s: %s", info.Path, err)
+						Warn.Printf("Stop monitoring %s: %s", dev.Path, err)
 
 						volt.lock.Lock()
-						volt.foundPaths[info.Path] = false
+						volt.foundPaths[dev.Path] = false
 						volt.lock.Unlock()
 					}
 				}()
