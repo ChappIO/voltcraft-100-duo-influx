@@ -58,9 +58,9 @@ func (consumer *InfluxConsumer) Connect() {
 }
 
 func (consumer *InfluxConsumer) flush() {
-	Debug.Print("Flushing...")
 	consumer.lock.Lock()
 	if consumer.batch != nil {
+		Debug.Print("Flushing...")
 		err := consumer.client.Write(consumer.batch)
 		if err != nil {
 			Warn.Printf("Failed to write to InfluxDB: %v", err)

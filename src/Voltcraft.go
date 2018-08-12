@@ -41,8 +41,9 @@ func (volt *Voltcraft) Scan() {
 			Debug.Printf("Already monitoring %s", info.Path)
 			continue
 		} else {
-			Info.Printf("Start monitoring %s", info.Path)
+
 			dev, err := info.Open()
+			Info.Printf("Start monitoring %s", info.Path)
 
 			if err != nil {
 				panic(err)
